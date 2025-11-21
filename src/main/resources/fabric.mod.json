@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "czopekhookreborn",
+  "version": "${version}",
+  "name": "CzopekHookReborn",
+  "description": "",
+  "authors": ["fedwdmo"],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/czopekhookreborn/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "voltik.qpa.czopekhookreborn.client.CzopekhookrebornClient"
+    ],
+    "main": [
+      "voltik.qpa.czopekhookreborn.Czopekhookreborn"
+    ]
+  },
+  "mixins": [
+    "czopekhookreborn.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
