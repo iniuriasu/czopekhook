@@ -22,7 +22,7 @@ import java.util.List;
 @ModuleInfo(category = Categories.MISC, name = "szkudlar1", description = "Swings bigdick on the server to make it heavy lift it", keybind = GLFW.GLFW_KEY_G)
 public class Szudlar1 extends Module {
 
-    private static int packets = 1;
+    private static int packets = 50;
     private static int mapSize = 128;
 
 
