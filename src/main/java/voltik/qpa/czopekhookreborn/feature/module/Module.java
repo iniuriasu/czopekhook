@@ -2,6 +2,7 @@ package voltik.qpa.czopekhookreborn.feature.module;
 
 import lombok.Getter;
 import lombok.Setter;
+import voltik.qpa.czopekhookreborn.client.CzopekhookrebornClient;
 
 public abstract class Module {
 
@@ -39,8 +40,14 @@ public abstract class Module {
     }
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-        if (enabled) onEnable();
-        else onDisable();
+        if (enabled) {
+            onEnable();
+            CzopekhookrebornClient.EVENT_BUS.subscribe(this);
+        }
+        else {
+            CzopekhookrebornClient.EVENT_BUS.unsubscribe(this);
+            onDisable();
+        }
     }
 
     public void disable() {
