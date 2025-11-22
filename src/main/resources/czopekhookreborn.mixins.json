@@ -4,7 +4,9 @@
   "package": "voltik.qpa.czopekhookreborn.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ClientConnectionMixin"
+    "ClientConnectionMixin",
+    "MinecraftClientMixin",
+    "WindowMixin"
   ],
   "client": [
     "InGameHudMixin"
