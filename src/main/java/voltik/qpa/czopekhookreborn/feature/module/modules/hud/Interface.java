@@ -85,11 +85,14 @@ public class Interface extends Module {
         Paint paint = new Paint().setShader(g);
         Paint paintg = new Paint().setShader(g2);
 
-        event.getSurface().getCanvas().drawString(
+        SkiaUtil.drawGlowingString(
+                event.getSurface().getCanvas(),
                 title,
                 28, 45,
                 SkiaFonts.PRODUCT_SANS,
-                paint
+                paint,
+                10.0f,
+                110
         );
 
         SkiaUtil.drawDoubleString(

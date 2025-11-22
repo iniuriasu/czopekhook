@@ -116,4 +116,20 @@ public class SkiaUtil {
         float valueX = x + space + font.measureText(first).getWidth();
         canvas.drawString(last, valueX, y, font, lastpaint);
     }
+
+    public static void drawGlowingString(Canvas canvas, String text, float x, float y, Font font, Paint textPaint, float bloomRadius, int alpha) {
+        final Paint bloom = new Paint()
+                .setColor(textPaint.getColor())
+                .setShader(textPaint.getShader())
+                .setAlpha(alpha)
+                .setImageFilter(
+                        ImageFilter.makeCompose(
+                                ImageFilter.makeBlur(bloomRadius, bloomRadius, FilterTileMode.DECAL),
+                                ImageFilter.makeDilate(bloomRadius / 2, bloomRadius / 2, null)
+                        )
+                );
+
+        canvas.drawString(text, x, y, font, bloom);
+        canvas.drawString(text, x, y, font, textPaint);
+    }
 }
