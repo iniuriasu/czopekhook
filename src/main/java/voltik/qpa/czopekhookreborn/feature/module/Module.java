@@ -35,7 +35,6 @@ public abstract class Module {
     }
 
     public void toggle() {
-        System.out.println("toggled");
     setEnabled(!enabled);
     }
     public void setEnabled(boolean enabled) {
