@@ -1,6 +1,8 @@
 package voltik.qpa.czopekhookreborn.feature.module;
 
-import voltik.qpa.czopekhookreborn.feature.module.modules.misc.cwel;
+import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.Szudlar1;
+import voltik.qpa.czopekhookreborn.feature.module.modules.misc.BanAll;
+import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.ConsoleSpammer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,9 @@ public class ModuleManager {
     private final List<Module> modules = new ArrayList<>();
 
     public ModuleManager() {
-        register(new cwel());
+        register(new Szudlar1());
+        register(new ConsoleSpammer());
+        register(new BanAll());
 
     }
 

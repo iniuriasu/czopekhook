@@ -9,6 +9,10 @@ public class PacketEvent extends Event {
         this.packet = packet;
     }
 
+    public Packet getPacket() {
+        return packet;
+    }
+
 
     public static class Send extends PacketEvent {
         public Send(Packet<?> packet) {

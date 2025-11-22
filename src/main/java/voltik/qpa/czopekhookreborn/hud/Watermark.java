@@ -12,5 +12,7 @@ public class Watermark {
         context.drawText(MinecraftClient.getInstance().textRenderer, "Username " + MinecraftClient.getInstance().player.getName(), 10, 20, Color.WHITE.getRGB(), false);
         context.drawText(MinecraftClient.getInstance().textRenderer, "Server " + MinecraftClient.getInstance().getNetworkHandler().getConnection().getAddress(), 10, 30, Color.WHITE.getRGB(), false);
         context.drawText(MinecraftClient.getInstance().textRenderer, "Engine " + MinecraftClient.getInstance().getNetworkHandler().getBrand(), 10, 40, Color.WHITE.getRGB(), false);
+
     }
+
 }

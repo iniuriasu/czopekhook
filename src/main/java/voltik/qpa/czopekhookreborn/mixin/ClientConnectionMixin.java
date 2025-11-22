@@ -3,16 +3,22 @@ package voltik.qpa.czopekhookreborn.mixin;
 
 
 import net.minecraft.network.ClientConnection;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.listener.PacketListener;
+import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.network.packet.Packet;
 
 
+import net.minecraft.network.packet.UnknownCustomPayload;
+import net.minecraft.network.packet.s2c.common.CustomPayloadS2CPacket;
+import net.minecraft.util.Identifier;
 import voltik.qpa.czopekhookreborn.client.CzopekhookrebornClient;
 import voltik.qpa.czopekhookreborn.events.PacketEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import voltik.qpa.czopekhookreborn.events.PluginMessageEvent;
 
 @Mixin(ClientConnection.class)
 public class ClientConnectionMixin {
@@ -29,6 +35,7 @@ public class ClientConnectionMixin {
     private static <T extends PacketListener> void onHandlePacketPost(Packet<T> packet, PacketListener listener, CallbackInfo ci) {
         PacketEvent.ReceivePost event = new PacketEvent.ReceivePost(packet);
         CzopekhookrebornClient.EVENT_BUS.post(event);
+
         if (event.isCancelled()) ci.cancel();
     }
 
@@ -40,6 +47,7 @@ public class ClientConnectionMixin {
 
         PacketEvent.Send event = new PacketEvent.Send(packet);
         CzopekhookrebornClient.EVENT_BUS.post(event);
+
         if (event.isCancelled()) ci.cancel();
     }
 
@@ -48,6 +56,7 @@ public class ClientConnectionMixin {
 
         PacketEvent.SendPost event = new PacketEvent.SendPost(packet);
         CzopekhookrebornClient.EVENT_BUS.post(event);
+
         if (event.isCancelled()) ci.cancel();
     }
 }

@@ -35,12 +35,17 @@ public abstract class Module {
     }
 
     public void toggle() {
+        System.out.println("toggled");
     setEnabled(!enabled);
     }
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
         if (enabled) onEnable();
         else onDisable();
+    }
+
+    public void disable() {
+        setEnabled(false);
     }
 
     public void onTick(){}

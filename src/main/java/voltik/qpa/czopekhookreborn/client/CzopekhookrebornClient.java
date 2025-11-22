@@ -9,6 +9,7 @@ import net.minecraft.client.util.InputUtil;
 
 import voltik.qpa.czopekhookreborn.feature.module.Module;
 import voltik.qpa.czopekhookreborn.feature.module.ModuleManager;
+import voltik.qpa.czopekhookreborn.listener.PacketListener;
 
 import java.lang.invoke.MethodHandles;
 
@@ -28,13 +29,20 @@ public class CzopekhookrebornClient implements ClientModInitializer {
         );
 
 
+        EVENT_BUS.subscribe(new PacketListener());
+
+
+
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             long window = MinecraftClient.getInstance().getWindow().getHandle();
-            if (moduleManager != null) {
-                moduleManager.onTick();
-                handleKeybinds(window);
+            if(MinecraftClient.getInstance().currentScreen == null && MinecraftClient.getInstance().player != null) {
+                if (moduleManager != null) {
+                    moduleManager.onTick();
+                    handleKeybinds(window);
+                }
             }
+
         });
     }
 
