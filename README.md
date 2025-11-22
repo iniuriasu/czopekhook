@@ -2,6 +2,11 @@
 
 najlepszy klient developwany przez najlepszych developerow w branzy.
 
+# Showcase
+
+![image](https://cdn.discordapp.com/attachments/1438565837396119742/1441870094945882182/1DCD5BCB-2348-4513-9B78-54D63EFB7E6D.png?ex=69235dab&is=69220c2b&hm=6bbbdffffe7434eeae77d44676744477f18f86411896837d062a526c42b07ab5&)
+
+
 # Czy Stanisław Wokulski jest postacią tragiczną?
 
 Stanisław Wokulski, bohater powieści Bolesława Prusa **„Lalka”**, to postać, która budzi wiele emocji i kontrowersji. Wokulski to człowiek, który, mimo ogromnych osiągnięć, nie potrafi znaleźć szczęścia, co może sugerować, że jest postacią tragiczną. Istnieje wiele argumentów, które przemawiają za tym, że Wokulski to bohater tragiczny, zmagający się z własnymi pragnieniami i niespełnionymi marzeniami.
