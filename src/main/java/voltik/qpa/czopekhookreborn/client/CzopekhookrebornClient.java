@@ -95,7 +95,8 @@ public class CzopekhookrebornClient implements ClientModInitializer {
         final Paint glow = new Paint()
                 .setAntiAlias(true)
                 .setColor(Color.makeRGB(0, 0, 0))
-                .setImageFilter(ImageFilter.makeBlur(30f, 30f, FilterTileMode.DECAL));
+                .setAlpha(140)
+                .setImageFilter(ImageFilter.makeBlur(15f, 15f, FilterTileMode.DECAL));
 
         event.getSurface().getCanvas().save();
         event.getSurface().getCanvas().clipRRect(rect, ClipMode.DIFFERENCE);

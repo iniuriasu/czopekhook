@@ -5,6 +5,8 @@ import net.minecraft.network.packet.s2c.common.ResourcePackSendS2CPacket;
 import voltik.qpa.czopekhookreborn.events.PacketEvent;
 
 public class PacketListener {
+
+
     @EventHandler
     public void onPacketReceive(PacketEvent.Receive event) {
 
