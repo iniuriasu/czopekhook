@@ -1,7 +1,11 @@
 package voltik.qpa.czopekhookreborn.listener;
 
 import meteordevelopment.orbit.EventHandler;
+
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.network.packet.s2c.common.CommonPingS2CPacket;
 import net.minecraft.network.packet.s2c.common.ResourcePackSendS2CPacket;
+import net.minecraft.text.Text;
 import voltik.qpa.czopekhookreborn.events.PacketEvent;
 
 public class PacketListener {
@@ -9,7 +13,6 @@ public class PacketListener {
 
     @EventHandler
     public void onPacketReceive(PacketEvent.Receive event) {
-
 
         if(event.getPacket() instanceof ResourcePackSendS2CPacket packet) {
             System.out.println("Server resource pack: " + packet.url());

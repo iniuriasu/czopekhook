@@ -8,5 +8,5 @@ public @interface ModuleInfo {
     Categories category();
     String name() default "unkown";
     String description() default "";
-    int keybind() default -1;
+    int keybind() default 0;
 }

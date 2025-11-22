@@ -12,6 +12,7 @@ import net.minecraft.client.util.InputUtil;
 import voltik.qpa.czopekhookreborn.events.SkiaEvent;
 import voltik.qpa.czopekhookreborn.feature.module.Module;
 import voltik.qpa.czopekhookreborn.feature.module.ModuleManager;
+import voltik.qpa.czopekhookreborn.feature.module.modules.misc.Debugger;
 import voltik.qpa.czopekhookreborn.listener.PacketListener;
 import voltik.qpa.czopekhookreborn.skia.SkiaFonts;
 import voltik.qpa.czopekhookreborn.skia.SkiaUtil;
@@ -35,6 +36,7 @@ public class CzopekhookrebornClient implements ClientModInitializer {
 
 
         EVENT_BUS.subscribe(new PacketListener());
+        EVENT_BUS.subscribe(new Debugger());
         EVENT_BUS.subscribe(this);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -82,7 +84,7 @@ public class CzopekhookrebornClient implements ClientModInitializer {
                 Math.max(SkiaFonts.PRODUCT_SANS.measureText(server).getWidth(), SkiaFonts.PRODUCT_SANS.measureText(engine).getWidth())
         );
 
-        final RRect rect = RRect.makeXYWH(15, 15, max + 20, 110, 7.9f * 2f, 7.9f * 2f);
+        final RRect rect = RRect.makeXYWH(15, 15, max + 30, 110, 7.9f * 2f, 7.9f * 2f);
         final Paint background = new Paint()
                 .setAntiAlias(true)
                 .setColor(Color.makeRGB(0, 0, 0))
@@ -113,8 +115,8 @@ public class CzopekhookrebornClient implements ClientModInitializer {
                 25, 45,
                 200, 45,
                 new int[]{
-                        SkiaUtil.colorFromAwt(new java.awt.Color(115, 218, 236)),
-                        SkiaUtil.colorFromAwt(new java.awt.Color(122, 0, 255))
+                        SkiaUtil.colorFromAwt(new java.awt.Color(110, 163, 255)),
+                        SkiaUtil.colorFromAwt(new java.awt.Color(44, 78, 133))
                 }
         );
 
@@ -131,8 +133,8 @@ public class CzopekhookrebornClient implements ClientModInitializer {
         Paint paintg = new Paint().setShader(g2);
 
         event.getSurface().getCanvas().drawString(
-                "CzopekHook RECODE",
-                25, 45,
+                title,
+                28, 45,
                 SkiaFonts.PRODUCT_SANS,
                 paint
         );
@@ -141,7 +143,7 @@ public class CzopekhookrebornClient implements ClientModInitializer {
                 event.getSurface().getCanvas(),
                 "Username: ",
                 MinecraftClient.getInstance().player.getName().getString(),
-                25, 45 + 20, 6.0f,
+                28, 45 + 20, 6.0f,
                 SkiaFonts.PRODUCT_SANS,
                 new Paint().setColor(Color.makeRGB(255, 255, 255)),
                 paintg
@@ -151,7 +153,7 @@ public class CzopekhookrebornClient implements ClientModInitializer {
                 event.getSurface().getCanvas(),
                 "Server: ",
                 MinecraftClient.getInstance().getNetworkHandler().getConnection().getAddress().toString(),
-                25, 45 + 20 + 20, 6.0f,
+                28, 45 + 20 + 20, 6.0f,
                 SkiaFonts.PRODUCT_SANS,
                 new Paint().setColor(Color.makeRGB(255, 255, 255)),
                 paintg
@@ -161,7 +163,7 @@ public class CzopekhookrebornClient implements ClientModInitializer {
                 event.getSurface().getCanvas(),
                 "Engine: ",
                 MinecraftClient.getInstance().getNetworkHandler().getBrand(),
-                25, 45 + 20 + 20 + 20, 6.0f,
+                28, 45 + 20 + 20 + 20, 6.0f,
                 SkiaFonts.PRODUCT_SANS,
                 new Paint().setColor(Color.makeRGB(255, 255, 255)),
                 paintg

@@ -3,6 +3,7 @@ package voltik.qpa.czopekhookreborn.feature.module;
 import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.Szudlar1;
 import voltik.qpa.czopekhookreborn.feature.module.modules.misc.BanAll;
 import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.ConsoleSpammer;
+import voltik.qpa.czopekhookreborn.feature.module.modules.misc.Debugger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class ModuleManager {
         register(new Szudlar1());
         register(new ConsoleSpammer());
         register(new BanAll());
+        register(new Debugger());
 
     }
 
