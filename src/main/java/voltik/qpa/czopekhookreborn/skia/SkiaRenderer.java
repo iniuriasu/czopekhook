@@ -61,14 +61,6 @@ public class SkiaRenderer {
                 GLBackendState.MISC
         );
 
-        Rect rect = Rect.makeXYWH(0, 0, 0.5f, 0.5f);
-        Paint paint = new Paint().setColor(Color.makeRGB(0, 0, 0));
-
-        surface.getCanvas().save();
-        surface.getCanvas().clipRect(rect, ClipMode.INTERSECT);
-        surface.getCanvas().drawRect(rect, paint);
-        surface.getCanvas().restore();
-
         CzopekhookrebornClient.EVENT_BUS.post(new SkiaEvent(surface, context, renderTarget));
 
         context.flushAndSubmit(true);

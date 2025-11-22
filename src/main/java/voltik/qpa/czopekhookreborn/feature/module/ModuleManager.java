@@ -2,6 +2,7 @@ package voltik.qpa.czopekhookreborn.feature.module;
 
 import voltik.qpa.czopekhookreborn.client.CzopekhookrebornClient;
 import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.Szudlar1;
+import voltik.qpa.czopekhookreborn.feature.module.modules.hud.Interface;
 import voltik.qpa.czopekhookreborn.feature.module.modules.misc.BanAll;
 import voltik.qpa.czopekhookreborn.feature.module.modules.crashers.ConsoleSpammer;
 import voltik.qpa.czopekhookreborn.feature.module.modules.misc.Debugger;
@@ -23,6 +24,7 @@ public class ModuleManager {
         register(new ConsoleSpammer());
         register(new BanAll());
         register(new Debugger());
+        register(new Interface());
     }
 
     public void register(Module module) {
